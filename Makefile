@@ -6,7 +6,7 @@
 #    By: sisen <sisen@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 16:31:41 by sisen             #+#    #+#              #
-#    Updated: 2022/12/18 14:01:00 by sisen            ###   ########.fr        #
+#    Updated: 2022/12/24 04:06:22 by sisen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,17 @@ SRCS		= ft_memset.c \
 			  ft_strncmp.c \
 			  ft_memchr.c \
 			  ft_memcmp.c\
+			  ft_strnstr.c \
+			  ft_strlcpy.c \
+			  ft_strdup.c	\
+			  ft_strlcat.c 	\
+			  ft_atoi.c 	\
+			  ft_calloc.c	\
+			  ft_substr.c 	\
+			  ft_strjoin.c 	\
+			  ft_putstr_fd.c \
+			  ft_putchar_fd.c\
+			  
 			  
 OBJS		= $(SRCS:%.c=%.o)
 
@@ -52,3 +63,4 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+

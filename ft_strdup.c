@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sisen <sisen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 15:26:02 by sisen             #+#    #+#             */
-/*   Updated: 2022/12/26 19:52:28 by sisen            ###   ########.fr       */
+/*   Created: 2022/12/22 14:21:13 by sisen             #+#    #+#             */
+/*   Updated: 2022/12/24 04:05:16 by sisen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalpha(int c)
+char *ft_strdup(const char *s1)
 {
-	return((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
+    char *str;
+    size_t i;
 
-int main()
-{
-	printf("%d", ft_isalpha('s'));
+    i = ft_strlen(s1) + 1;
+    str = (char *)malloc(i * 1);
+    if (!str)
+        return (0);
+    ft_memcpy(str,s1,i);
+        return (str);
+    return (0);
 }
 /*
-- int isalpha(int c);
-- <ctype.h>
-- Karakterin alfabetik olup olmadığını test eder
-- Alfabetik karakterse 0'dan farklı bir return dönderir, değilse return 0 dönderir.
+*int main()
+*{
+*    char str1[] = "sinemsen";
+*    char *str2;
+*    str2 = ft_strdup(str1);
+*   printf("%s", ft_strdup(str2));
+*}
 */

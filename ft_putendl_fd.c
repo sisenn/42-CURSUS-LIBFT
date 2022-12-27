@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sisen <sisen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 15:26:02 by sisen             #+#    #+#             */
-/*   Updated: 2022/12/26 19:52:28 by sisen            ###   ########.fr       */
+/*   Created: 2022/12/24 02:55:33 by sisen             #+#    #+#             */
+/*   Updated: 2022/12/24 03:06:35 by sisen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int ft_isalpha(int c)
+#include "fcntl.h"
+void ft_putendl_fd(char *s, int fd)
 {
-	return((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
-
-int main()
-{
-	printf("%d", ft_isalpha('s'));
+    int i;
+    i = 0;
+    
+    while(s[i])
+    {
+        ft_putchar_fd(s[i], fd);
+        i++;
+    }
+    ft_putchar_fd('\n', fd);
 }
 /*
-- int isalpha(int c);
-- <ctype.h>
-- Karakterin alfabetik olup olmadığını test eder
-- Alfabetik karakterse 0'dan farklı bir return dönderir, değilse return 0 dönderir.
-*/
+int main()
+{
+    char s[] = "sinem";
+    int p = open("sak.txt", O_RDWR | O_CREAT, 0777);
+    int t = open("gfh.txt", O_RDWR | O_CREAT, 0777);
+    ft_putendl_fd(s, 3);
+}*/

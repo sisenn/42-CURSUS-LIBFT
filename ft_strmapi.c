@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sisen <sisen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 15:26:02 by sisen             #+#    #+#             */
-/*   Updated: 2022/12/26 19:52:28 by sisen            ###   ########.fr       */
+/*   Created: 2022/12/27 12:21:44 by sisen             #+#    #+#             */
+/*   Updated: 2022/12/27 12:39:05 by sisen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int ft_isalpha(int c)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	return((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
+    if(!s || !f)
+        return(0);
+    char *a;
+    int i;
+    i = 0;
 
-int main()
-{
-	printf("%d", ft_isalpha('s'));
+    a = malloc((ft_strlen(s) + 1) * sizeof(char));
+    if(!a)
+        return(0);
+    while(s[i])
+    {
+        a[i] = f(s[i]);
+        i ++;
+    }
+    a[i] = '\0';
+    return(a);
 }
-/*
-- int isalpha(int c);
-- <ctype.h>
-- Karakterin alfabetik olup olmadığını test eder
-- Alfabetik karakterse 0'dan farklı bir return dönderir, değilse return 0 dönderir.
-*/

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sisen <sisen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 15:26:02 by sisen             #+#    #+#             */
-/*   Updated: 2022/12/26 19:52:28 by sisen            ###   ########.fr       */
+/*   Created: 2022/12/27 12:39:22 by sisen             #+#    #+#             */
+/*   Updated: 2022/12/27 13:13:18 by sisen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int ft_isalpha(int c)
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	return((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
+    unsigned int i;
 
-int main()
-{
-	printf("%d", ft_isalpha('s'));
+    i = 0;
+    if(!s || !f)
+        return;
+    while(s[i])
+        f(i, &s[i]);
+        i++;
 }
-/*
-- int isalpha(int c);
-- <ctype.h>
-- Karakterin alfabetik olup olmadığını test eder
-- Alfabetik karakterse 0'dan farklı bir return dönderir, değilse return 0 dönderir.
-*/

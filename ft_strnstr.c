@@ -6,43 +6,45 @@
 /*   By: sisen <sisen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 14:35:08 by sisen             #+#    #+#             */
-/*   Updated: 2022/12/18 17:54:16 by sisen            ###   ########.fr       */
+/*   Updated: 2022/12/21 23:46:04 by sisen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+#include    "libft.h"
+
+char    *ft_strnstr(const char *dst, const char *src, size_t n)
 {
-    size_t i;
-    size_t j;
+    size_t  i;
+    size_t  j;
 
     i = 0;
     j = 0;
-    if(!haystack && !len)
-        return(0);
-    if(!needle[0])
-        return((char *)haystack);
-    while(haystack[i] && i < len)
+    if (!dst && !n)
+        return (NULL);
+    if ((ft_strlen(src) == 0))
+        return ((char *)dst);
+    if (ft_strlen(dst) == 0)
+        return (0);
+    while (i < n)
     {
-        if(haystack[i + j]  == needle[j])
+        while (dst[i + j] == src[j] && (i + j) < n)
+        {
+            if (src[j + 1] == '\0')
+                return ((char *)dst + i);
             j++;
-        if(needle[j] == '\0')
-            return((char *)&haystack[i]);
-
-        j = 0;
-        i ++;
+        }
+        i++;
     }
-    return(0);
-            
-        
-
+    return (0);
 }
-
-
-
+/*
 int main()
 {
-    const char h[] = "bilgisayar";
-    const char n[] = "sayar";
-    printf("%s", ft_strnstr(h, n, 9));
-}
+    char a[] = "bigisayar";
+    char b[] = "isa";
+
+    size_t n = 10;
+    char *snc = ft_strnstr(a,b,n);
+    printf("%s", snc);
+}*/
+

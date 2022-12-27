@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sisen <sisen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 15:26:02 by sisen             #+#    #+#             */
-/*   Updated: 2022/12/26 19:52:28 by sisen            ###   ########.fr       */
+/*   Created: 2022/12/22 12:01:40 by sisen             #+#    #+#             */
+/*   Updated: 2022/12/28 01:52:31 by sisen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int ft_isalpha(int c)
+#include    "libft.h"
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	return((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
+    size_t i;
+    i = 0;
 
-int main()
-{
-	printf("%d", ft_isalpha('s'));
+    if(dstsize > 0)
+    {
+        while(src[i] && i < dstsize - 1)
+        {
+            dst[i] = src[i];
+            i++;
+        }
+        dst[i] = '\0';
+    }
+    return (ft_strlen(src));
 }
 /*
-- int isalpha(int c);
-- <ctype.h>
-- Karakterin alfabetik olup olmadığını test eder
-- Alfabetik karakterse 0'dan farklı bir return dönderir, değilse return 0 dönderir.
-*/
+int main()
+{
+    char a[] = "mucahit";
+    char b[] = "sinem";
+    printf("%zu", ft_strlcpy(a, b, 6));
+}*/

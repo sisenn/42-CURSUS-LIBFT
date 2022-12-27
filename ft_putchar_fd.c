@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sisen <sisen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 15:26:02 by sisen             #+#    #+#             */
-/*   Updated: 2022/12/26 19:52:28 by sisen            ###   ########.fr       */
+/*   Created: 2022/12/24 02:14:24 by sisen             #+#    #+#             */
+/*   Updated: 2022/12/24 02:50:33 by sisen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <fcntl.h>
 
-int ft_isalpha(int c)
+void ft_putchar_fd(char c, int fd)
 {
-	return((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+    write(fd, &c, 1);
 }
 
+/*
 int main()
 {
-	printf("%d", ft_isalpha('s'));
-}
-/*
-- int isalpha(int c);
-- <ctype.h>
-- Karakterin alfabetik olup olmadığını test eder
-- Alfabetik karakterse 0'dan farklı bir return dönderir, değilse return 0 dönderir.
-*/
+    int x = open("foo.txt", O_RDWR | O_CREAT, 0777);
+    int y = open("zoo.txt", O_RDWR | O_CREAT, 0777);
+    int z = open("qoo.txt", O_RDWR | O_CREAT, 0777); 
+    close(x);
+    ft_putchar_fd('y', x);
+}*/
