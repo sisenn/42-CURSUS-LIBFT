@@ -6,13 +6,13 @@
 /*   By: sisen <sisen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 02:30:50 by sisen             #+#    #+#             */
-/*   Updated: 2022/12/18 04:12:35 by sisen            ###   ########.fr       */
+/*   Updated: 2022/12/28 19:19:27 by sisen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-	return(c >= '0'  && c <= '9');
+	return (c >= '0' && c <= '9');
 }

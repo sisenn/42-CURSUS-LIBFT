@@ -1,66 +1,57 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: sisen <sisen@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/07 16:31:41 by sisen             #+#    #+#              #
-#    Updated: 2022/12/24 04:06:22 by sisen            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+SRCS	=	ft_isalpha.c \
+			ft_isdigit.c \
+			ft_isalnum.c \
+			ft_isascii.c \
+			ft_isprint.c \
+			ft_strlen.c \
+			ft_bzero.c  \
+			ft_memset.c	\
+			ft_memcpy.c	\
+			ft_toupper.c \
+			ft_tolower.c \
+			ft_strlcpy.c \
+			ft_strlcat.c \
+			ft_strncmp.c \
+			ft_strchr.c \
+			ft_strrchr.c \
+			ft_memchr.c \
+			ft_memcmp.c \
+			ft_memmove.c \
+			ft_strnstr.c \
+			ft_atoi.c \
+			ft_calloc.c \
+			ft_strdup.c \
+			ft_substr.c \
+			ft_strjoin.c \
+			ft_strtrim.c \
+			ft_split.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
+			ft_itoa.c \
+			ft_strmapi.c \
+			ft_striteri.c
 
-NAME		= libft.a
+OBJS = ${SRCS:.c=.o}
+NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -rf
+LIBC = ar rc 
 
-SRCS		= ft_memset.c \
-			  ft_bzero.c \
-			  ft_memcpy.c \
-			  ft_isalpha.c \
-			  ft_isdigit.c \
-			  ft_isalnum.c \
-			  ft_isascii.c \
-			  ft_isprint.c \
-			  ft_toupper.c \
-			  ft_tolower.c \
-			  ft_strlen.c \
-			  ft_strchr.c \
-			  ft_strrchr.c \
-			  ft_strncmp.c \
-			  ft_memchr.c \
-			  ft_memcmp.c\
-			  ft_strnstr.c \
-			  ft_strlcpy.c \
-			  ft_strdup.c	\
-			  ft_strlcat.c 	\
-			  ft_atoi.c 	\
-			  ft_calloc.c	\
-			  ft_substr.c 	\
-			  ft_strjoin.c 	\
-			  ft_putstr_fd.c \
-			  ft_putchar_fd.c\
-			  
-			  
-OBJS		= $(SRCS:%.c=%.o)
+all: ${NAME}
 
-BNS_OBJS	= $(BNS_SRCS:%.c=%.o)
-
-FLAGS		= -Wall -Werror -Wextra
-
-$(NAME):
-	gcc $(FLAGS) -c $(SRCS) -I ./
-	ar rc $(NAME) $(OBJS)
-
-all: $(NAME)
-
-bonus: $(NAME)
-	gcc $(FLAGS) -c $(BNS_SRCS) -I ./
-	ar rc $(NAME) $(BNS_OBJS)
+${NAME}: ${OBJS}
+	${LIBC} ${NAME} ${OBJS} 
 
 clean:
-	rm -f $(OBJS) $(BNS_OBJS)
+	${RM} ${OBJS} 
 
 fclean: clean
-	rm -f $(NAME)
+	${RM} ${NAME}
+	
 
 re: fclean all
 
+.PHONY: all clean fclean re
